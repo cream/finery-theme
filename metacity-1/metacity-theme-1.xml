@@ -348,83 +348,105 @@
 		<draw_ops name="menu_focused_prelight">
   	 <image filename="menu_prelight.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="menu_unfocused_normal">
   	 	<image filename="menu.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="menu_unfocused_prelight">
    		<image filename="menu_prelight.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="minimize_focused_normal">
-		<image filename="minimize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="minimize.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="minimize_focused_prelight">
-		<image filename="minimize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.85"/>
+		<image filename="minimize_prelight.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="minimize_focused_pressed">
-		<image filename="minimize_.png" x="0" y="1" width="object_width" height="object_height" alpha=".2"/>
+		<image filename="minimize_prelight.png" x="0" y="3" width="object_width" height="object_height"
+		       alpha=".35"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="minimize_unfocused_normal">
-		<image filename="minimize_unfocused.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="minimize_unfocused.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="minimize_unfocused_prelight">
-		<image filename="minimize_unfocused_over.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="minimize_unfocused_over.png" x="0" y="1" width="object_width"/>
 	</draw_ops>
 	<draw_ops name="minimize_unfocused_pressed">
-		<image filename="minimize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="minimize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="maximize_focused_normal">
-		<image filename="maximize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="maximize.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="maximize_focused_prelight">
-		<image filename="maximize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.85"/>
+		<image filename="maximize_prelight.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="maximize_focused_pressed">
-		<image filename="maximize_.png" x="0" y="1" width="object_width" height="object_height" alpha=".2"/>
+		<image filename="maximize_prelight.png" x="0" y="3" width="object_width" height="object_height" 
+		       alpha=".35"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="maximize_unfocused_normal">
-		<image filename="maximize_unfocused.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="maximize_unfocused.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="maximize_unfocused_prelight">
-		<image filename="maximize_unfocused_over.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="maximize_unfocused_over.png" x="0" y="1" width="object_width"/>
 	</draw_ops>
 	<draw_ops name="maximize_unfocused_pressed">
-		<image filename="maximize_.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="maximize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="unmaximize_focused_normal">
-		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="unmaximize_focused_prelight">
-		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.85"/>
+		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="unmaximize_focused_pressed">
-		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height" alpha=".2"/>
+		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="unmaximize_unfocused_normal">
-		<image filename="unmaximize_unfocused.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="unmaximize_unfocused.png" x="0" y="1" width="object_width" 
+		       height="object_height"/>
 	</draw_ops>
 	<draw_ops name="unmaximize_unfocused_prelight">
-		<image filename="unmaximize_unfocused_over.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="unmaximize_unfocused_over.png" x="0" y="1" width="object_width" 
+		       height="object_height"/>
 	</draw_ops>
 	<draw_ops name="unmaximize_unfocused_pressed">
-		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="unmaximize.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="close_focused_normal">
-		<image filename="close_.png" x="0" y="1" width="object_width" height="object_height"/>
+		<image filename="close.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="close_focused_prelight">
-		<image filename="close_prelight.png" x="0" y="1" width="object_width" height="object_height"/>
+		<image filename="close_prelight.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="close_focused_pressed">
-		<image filename="close_pressed.png" x="0" y="1" width="object_width" height="object_height"/>
+		<image filename="close_prelight.png" x="0" y="3" width="object_width" height="object_height"/>
 	</draw_ops>
+	
+	
 	<draw_ops name="close_unfocused_normal">
-		<image filename="close_unfocused.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="close_unfocused.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="close_unfocused_prelight">
-		<image filename="close_unfocused_over.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="close_unfocused_over.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 	<draw_ops name="close_unfocused_pressed">
-		<image filename="close_pressed.png" x="0" y="1" width="object_width" height="object_height" colorize="shade/gtk:bg[SELECTED]/.6"/>
+		<image filename="close_pressed.png" x="0" y="1" width="object_width" height="object_height"/>
 	</draw_ops>
 
 <!-- FRAME STYLE -->

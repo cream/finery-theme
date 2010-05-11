@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Radiance
-Comment=Ubuntu Radiance theme
+Name=Refulgence
+Comment=Improved ubuntu Radiance theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Radiance
-MetacityTheme=Radiance
+GtkTheme=Refulgence
+MetacityTheme=Refulgence
 IconTheme=ubuntu-mono-light
 CursorTheme=DMZ-White
 ButtonLayout=close,minimize,maximize:
