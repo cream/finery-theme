@@ -1,0 +1,76 @@
+################################################
+# PANELS
+################################################
+
+# Note: Uncommenting means to delete the "#" at the beginning of a line. Commenting out means to add a "#" at the beginning of a line. The "#" tells the theme wether to ignore the line or not.
+
+style "theme-panel"
+{
+	bg_pixmap[NORMAL]	= "/Panels/bg_panel_26.png" # Disable for normal panel backgrounds.
+
+	bg[SELECTED]	= shade(1.2, @selected_bg_color) #shade (0.85, @selected_bg_color) # Makes selected items dark.
+	bg[NORMAL]	= "#D4CEBF" # Makes panel background dark.
+	bg[PRELIGHT]	= shade (1.2, @selected_bg_color) # Makes panel button prelight dark.
+	bg[ACTIVE]	=  shade (0.9, @selected_bg_color) #"#DFDBCE"  #shade (0.60, @bg_color) # Makes active buttons dark.
+	bg[INSENSITIVE]	= "#464139"
+	fg[NORMAL]	= "#2B2A28" # Makes panel text light.
+	fg[PRELIGHT]	= "#48453E" #@selected_fg_color  # Makes prelighted text colored.
+	fg[SELECTED]	= "#333333" #@selected_fg_color  # Makes prelighted text colored.
+	fg[ACTIVE]	= @selected_fg_color  # Makes active text colored.
+	fg[INSENSITIVE]	= "#666666" # Color for insensitive text.
+	text[NORMAL]	= "#E6E6E6"
+	text[PRELIGHT]	= "#333333" #z@selected_fg_color  # Makes prelighted text colored.
+	text[SELECTED]	= "#333333" #@selected_fg_color  # Makes prelighted text colored.
+	text[ACTIVE]	= @selected_fg_color  # Makes active text colored.
+	text[INSENSITIVE]	= "#48453E"
+
+	engine "murrine" {
+		roundness = 1 # This sets the roundness of panel items.
+		
+		border_shades       = { 1.0, 1.1 } # gradient to draw on border
+		contrast            = 0.7   # 0.8 for less contrast, more than 1.0 for more contrast on borders
+		glazestyle          = 3     # 0 = flat, 1 = curved, 2 = concave, 3 = top-curved, 4 = beryl
+		glow_shade          = 1.4   # sets glow amount for buttons or widgets
+		glowstyle           = 4     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal)
+		gradient_shades     = {1.2,1.0,1.0,0.9} # default: {1.1,1.0,1.0,1.1}
+		highlight_shade     = 1.05  # set highlight amount for buttons or widgets
+		lightborder_shade   = 1.1   # sets lightborder amount for buttons or widgets
+		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+
+		shadow_shades 	    = { 0.4, 0.2 } # draw gradient on shadow of some widgets
+		textstyle           = 1     # 0 = normal text, 1 = inset
+	}
+}
+
+style "theme-panel-light"
+{
+	fg[NORMAL]	= @fg_color
+}
+
+# Panel settings. Do not change.
+widget "*PanelWidget*"		style "theme-panel"
+widget "*PanelApplet*"		style "theme-panel"
+widget "*fast-user-switch*"	style "theme-panel"
+widget "*gdm-user-switch*"	style "theme-panel"
+widget "*CPUFreq*Applet*"	style "theme-panel"
+widget "*indicator-applet*"	style "theme-panel"
+class "PanelApp*"		style "theme-panel"
+class "PanelToplevel*"		style "theme-panel"
+widget_class "*PanelToplevel*"	style "theme-panel"
+#widget_class "*Mail*"		style "theme-panel" # Disabled to fix Evolution bug.
+#class "*Panel*"		style "theme-panel" # Disabled to fix bug.
+widget_class "*notif*"		style "theme-panel"
+widget_class "*Notif*"		style "theme-panel"
+widget_class "*Tray*"		style "theme-panel" 
+widget_class "*tray*"		style "theme-panel"
+widget_class "*computertemp*"	style "theme-panel"
+widget_class "*Applet*Tomboy*"	style "theme-panel"
+widget_class "*Applet*Netstatus*"	style "theme-panel"
+
+# Fixes for tooltip text in some apps.
+widget_class "*Notif*Beagle*"	style "theme-panel-light"
+widget_class "*Notif*Brasero*"	style "theme-panel-light"
+
+# XFCE panel theming.
+widget "*Xfce*Panel*"		style "theme-panel"
+class "*Xfce*Panel*"		style "theme-panel"

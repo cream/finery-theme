@@ -7,11 +7,13 @@
 #
 # Feel free to modify and share!
 
-gtk_color_scheme = "fg_color:#404040\nbg_color:#F7F5F2\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#000\ntooltip_fg_color:#FFFFFF\nlink_color:#DD4814"
+gtk_color_scheme = "fg_color:#404040\nbg_color:#F7F5F0\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#000\ntooltip_fg_color:#FFFFFF\nlink_color:#DD4814"
 
-gtk-icon-sizes = "panel-menu=22,22:gtk-button=16,16"
+gtk-icon-sizes = "panel-menu=26,26:gtk-button=16,16"
 
 gtk-auto-mnemonics = 1 
+
+include "panel.rc"
 
 style "default"
 {
@@ -128,7 +130,7 @@ style "default"
 		menuitemstyle       = 0     # 0 = flat, 1 = glassy, 2 = striped
 		menustyle           = 0     # 0 = no vertical menu stripe, 1 = display vertical menu stripe
 		prelight_shade      = .95  # shade level for scrollbar's slider, comboboxstyle(1), and prelight state with gradient_colors
-		progressbarstyle    = 0     # 0 = no stripes, 1 = diagonal stripes, 2 = vertical stripes 
+		progressbarstyle    = 1     # 0 = no stripes, 1 = diagonal stripes, 2 = vertical stripes 
 		reliefstyle	    = 3     # 0 = flat, 1 = inset, 2 = shadow, 3 = shadow with gradient, 4 = stronger shadow with gradient
 		rgba		    = FALSE # FALSE = disabled, TRUE = enabled
 		roundness           = 3     # 0 = squared, 1 = old default, more will increase roundness
@@ -138,11 +140,12 @@ style "default"
 		sliderstyle         = 1     # 0 = nothing added, 1 = handles
 		spinbuttonstyle     = 0     # 0 = no seperator, 1 = with separator
 		stepperstyle        = 1     # 0 = standard, 1 = integrated stepper handles, 2 = squared steppers with round slider
-		textstyle           = 0     # 0 = normal text, 1 = inset
+		textstyle           = 1     # 0 = normal text, 1 = inset
 		toolbarstyle	    = 0     # 0 = flat, 1 = glassy, 2 = gradient
 		trough_shades       = { 0.88, 2.0 } # draw gradient on trough of GtkScrollbar and GtkProgressbar
 	}
 }
+
 
 style "selected" = "default"
 {
@@ -194,13 +197,14 @@ style "button" = "selected"
 	engine "murrine"
 	{
 		contrast = .6
-		lightborder_shade = 1.06
+		lightborder_shade = 1.8
+		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
 
-		glow_shade = 1.8
+		glow_shade = 1.6
 		glowstyle = 3
 		glazestyle = 4
 		gradient_shades = {1.4,1.2,1.2,1.1}
-		shadow_shades = {0.3,0.8}
+		shadow_shades = {0.4,0.9}
 
 		roundness = 3
 	}
@@ -261,7 +265,7 @@ style "menu"
 
         engine "murrine" 
 	{
-            	roundness = 0
+            	roundness = 10
         }
 }
 
@@ -270,10 +274,19 @@ style "menu-item" = "default"
 	xthickness = 0
 	ythickness = 5
 
+	bg[SELECTED]   = shade (0.92, "#f2ede4")
         engine "murrine" 
-	{
-            	glowstyle = 0
-           	roundness = 0
+	    {
+        	glowstyle = 3
+        	glow_shade = 1.1
+           	roundness = 1
+           	
+		    border_shades       = { 1.35, 1.25 } # gradient to draw on borderll sides
+            contrast            = 0.4
+		    shadow_shades 	    = { 0.4, 0.2 } # draw gradient on shadow of some widgets
+    		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+	    	lightborder_shade = 1.8
+		menuitemstyle       = 1     # 0 = flat, 1 = glassy, 2 = striped
         }
 
 
@@ -328,13 +341,13 @@ style "progressbar"
 		glowstyle           	= 0     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
 		gradient_shades 	= {1.1,.9,.9,.8}
 		#highlight_shade     	= 1.02  # set highlight amount for buttons or widgets
-		#lightborder_shade   	= 1.2   # sets lightborder amount for buttons or widgets
-		roundness		= 12
+		lightborder_shade   	= 1.6   # sets lightborder amount for buttons or widgets
+		roundness		= 16
 	}
 
-	bg[NORMAL]	= shade (1.0, @bg_color)
-	bg[PRELIGHT] 	= shade (1.2, @bg_color)
-	bg[SELECTED] 	= "#FE765E"
+	bg[NORMAL]	= shade (1.08, @bg_color)
+	bg[PRELIGHT] 	= shade (1.22, @bg_color)
+	bg[SELECTED] 	= "#ff8865"
 
 	fg[PRELIGHT] 	= "#fff"
 }
@@ -452,6 +465,8 @@ style "radiocheck"
 	    	gradient_shades = {1.5,1.3,1.0,0.9}
 	}
 }
+
+
 
 #########################################
 # Matches
@@ -596,12 +611,12 @@ style "evo-new-button-workaround"
 widget_class "EShellWindow.GtkVBox.BonoboDock.BonoboDockBand.BonoboDockItem*" style "evo-new-button-workaround"
 
 # Theme panel elements
-widget "*PanelWidget*" 					style "panel"
-widget "*PanelApplet*" 					style "panel"
-widget "*fast-user-switch*"				style "panel" # workaround for Fast User Switch applet
-class "PanelApp*" 					style "panel"
-class "PanelToplevel*" 					style "panel"
-widget_class "*notif*" 					style "panel"
-widget_class "*Notif*" 					style "panel"
+#widget "*PanelWidget*" 					style "panel"
+#widget "*PanelApplet*" 					style "panel"
+#widget "*fast-user-switch*"				style "panel" # workaround for Fast User Switch applet
+#class "PanelApp*" 					style "panel"
+#class "PanelToplevel*" 					style "panel"
+#widget_class "*notif*" 					style "panel"
+#widget_class "*Notif*" 					style "panel"
 
 class "TerminalScreen" style "terminal"
