@@ -53,38 +53,38 @@
 
 <draw_ops name="draw_title_text_normal">
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)+1"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22-1"
+         x="((1 `max` (width-title_width)) / 2)-23-1"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22+1"
+         x="((1 `max` (width-title_width)) / 2)-23+1"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#615b4c"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)"/>
 
 </draw_ops>
 
 <draw_ops name="draw_title_text_inactive">
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)+1"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22-1"
+         x="((1 `max` (width-title_width)) / 2)-23-1"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#e8e5dd"
-         x="((1 `max` (width-title_width)) / 2)-22+1"
+         x="((1 `max` (width-title_width)) / 2)-23+1"
          y="(((height - title_height) / 2) `max` 0)"/>
   <title color="#756f60"
-         x="((1 `max` (width-title_width)) / 2)-22"
+         x="((1 `max` (width-title_width)) / 2)-23"
          y="(((height - title_height) / 2) `max` 0)"/>
 </draw_ops>
 

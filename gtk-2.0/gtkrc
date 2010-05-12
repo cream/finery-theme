@@ -7,7 +7,7 @@
 #
 # Feel free to modify and share!
 
-gtk_color_scheme = "fg_color:#404040\nbg_color:#F7F5F0\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#000\ntooltip_fg_color:#FFFFFF\nlink_color:#DD4814"
+gtk_color_scheme = "fg_color:#404040\nbg_color:#F7F5F0\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#120d04\ntooltip_fg_color:#fff5fc\nlink_color:#DD4814\ncolored_color:#ff8442"
 
 gtk-icon-sizes = "panel-menu=26,26:gtk-button=16,16"
 
@@ -43,7 +43,7 @@ style "default"
 	GtkRange::stepper-size = 20
         GtkRange::trough-under-steppers = 0
 
-	GtkScale::slider-length = 28
+	GtkScale::slider-length = 13
 	GtkScale::trough-side-details = 1
 
 	GtkScrollbar::min-slider-length = 36
@@ -115,7 +115,7 @@ style "default"
 		comboboxstyle       = 1     # 0 = normal combobox, 1 = colorized combobox below arrow
 		colorize_scrollbar  = FALSE  # FALSE = disabled, TRUE = enabled
 		contrast            = 0.4   # 0.8 for less contrast, more than 1.0 for more contrast on borders
-		focus_color         = "#FE765E"
+		focus_color         = @colored_color#"#FE765E"
 		glazestyle          = 4     # 0 = flat, 1 = curved, 2 = concave, 3 = top-curved, 4 = beryl
 		glow_shade          = 1.1   # sets glow amount for buttons or widgets
 		glowstyle           = 0     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
@@ -137,7 +137,7 @@ style "default"
 		scrollbarstyle      = 2     # 0 = nothing, 1 = circles, 2 = handles, 3 = diagonal stripes, 4 = diagonal stripes and handles, 5 = horizontal stripes, 6 = horizontal stripes and handles
 		shadow_shades 	    = { 0.8, 2.2 } # draw gradient on shadow of some widgets
 		separatorstyle	    = 1
-		sliderstyle         = 1     # 0 = nothing added, 1 = handles
+		sliderstyle         = 0     # 0 = nothing added, 1 = handles
 		spinbuttonstyle     = 0     # 0 = no seperator, 1 = with separator
 		stepperstyle        = 1     # 0 = standard, 1 = integrated stepper handles, 2 = squared steppers with round slider
 		textstyle           = 1     # 0 = normal text, 1 = inset
@@ -172,14 +172,17 @@ style "entry"
 {
 	xthickness = 3
 	ythickness = 3
-
-	bg[SELECTED] = mix (0.4, @selected_bg_color, @base_color)
+    
+	bg[SELECTED] = mix (0.4, @selected_bg_color, @colored_color)
 	fg[SELECTED] = @text_color
 
 	engine "murrine"
 	{
-		border_shades = {1.0, 1.0 }
-		contrast = .8
+		border_shades = {1.22, 0.88 }
+		contrast = .6
+		
+		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+		lightborder_shade = 2.0
 	}
 }
 
@@ -188,25 +191,25 @@ style "button" = "selected"
 	xthickness = 3
 	ythickness = 3
 
-	bg[NORMAL]   = shade (0.9, @selected_bg_color)
-	bg[PRELIGHT] = shade (0.95, @selected_bg_color)
-	bg[SELECTED] = shade (1.0, @selected_bg_color)
-	bg[ACTIVE]   = shade (0.9, @selected_bg_color)
-	bg[INSENSITIVE]   = mix (0.3, @selected_bg_color, @bg_color) 
+	bg[NORMAL]   = shade (0.8, "#f2ede4")#@selected_bg_color)
+	bg[PRELIGHT] = shade (0.84, "#f2ede4")#@selected_bg_color)
+	bg[SELECTED] = shade (0.97, "#f2ede4")#@selected_bg_color)
+	bg[ACTIVE]   = shade (0.74, "#f2ede4")#@selected_bg_color)
+	bg[INSENSITIVE]   = mix (0.3, @selected_bg_color, "#f2ede4") 
 
 	engine "murrine"
 	{
-		contrast = .6
-		lightborder_shade = 1.8
+		contrast = 0.5
+		border_shades = {1.23, 1.0}
 		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+		lightborder_shade = 2.0
 
-		glow_shade = 1.6
+		glow_shade = 1.58
 		glowstyle = 3
 		glazestyle = 4
 		gradient_shades = {1.4,1.2,1.2,1.1}
-		shadow_shades = {0.4,0.9}
-
-		roundness = 3
+		shadow_shades = {0.65,0.85}
+		roundness = 2
 	}
 }
 
@@ -272,7 +275,7 @@ style "menu"
 style "menu-item" = "default"
 {
 	xthickness = 0
-	ythickness = 5
+	ythickness = 4
 
 	bg[SELECTED]   = shade (0.92, "#f2ede4")
         engine "murrine" 
@@ -303,6 +306,20 @@ style "separator-menu-item"
 
 style "treeview"
 {
+	bg[SELECTED]   = shade (0.92, "#f2ede4")
+        engine "murrine" 
+	    {
+        	glowstyle = 3
+        	glow_shade = 1.4
+           	roundness = 1
+           	
+		    border_shades       = { 1.35, 1.25 } # gradient to draw on borderll sides
+            contrast            = 0.4
+		    shadow_shades 	    = { 0.4, 0.2 } # draw gradient on shadow of some widgets
+    		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+	    	lightborder_shade = 1.8
+		    menuitemstyle       = 1     # 0 = flat, 1 = glassy, 2 = striped
+        }
 }
 
 style "treeview-header" = "selected"
@@ -337,8 +354,8 @@ style "progressbar"
 		border_colors       	= { "#FE765E", "#FE765E" }
 		#contrast		= 1.0 
 		glazestyle          	= 0     # 0 = flat, 1 = curved, 2 = concave, 3 = top-curved, 4 = beryl
-		glow_shade          	= 1.14   # sets glow amount for buttons or widgets
-		glowstyle           	= 0     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
+		glow_shade          	= 1.5   # sets glow amount for buttons or widgets
+		glowstyle           	= 2     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
 		gradient_shades 	= {1.1,.9,.9,.8}
 		#highlight_shade     	= 1.02  # set highlight amount for buttons or widgets
 		lightborder_shade   	= 1.6   # sets lightborder amount for buttons or widgets
@@ -347,7 +364,7 @@ style "progressbar"
 
 	bg[NORMAL]	= shade (1.08, @bg_color)
 	bg[PRELIGHT] 	= shade (1.22, @bg_color)
-	bg[SELECTED] 	= "#ff8865"
+	bg[SELECTED] 	= @colored_color
 
 	fg[PRELIGHT] 	= "#fff"
 }
@@ -373,21 +390,28 @@ style "spinbutton"
 
 style "scale"
 {
-	GtkRange::slider-width = 14
+	GtkRange::slider-width = 13
 	
 	engine "murrine"
 	{
-		contrast		= 1.0
+		contrast		= 0.7
+		
+		border_shades = {1.0, 1.14}
+		
 		glazestyle          	= 0     # 0 = flat, 1 = curved, 2 = concave, 3 = top-curved, 4 = beryl
-		glow_shade          	= 1.14   # sets glow amount for buttons or widgets
-		glowstyle           	= 0     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
-		highlight_shade     	= 1.02  # set highlight amount for buttons or widgets
-		roundness		= 6
+		glow_shade          	= 1.8   # sets glow amount for buttons or widgets
+		glowstyle           	= 2     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
+		highlight_shade     	= 1.06  # set highlight amount for buttons or widgets
+		roundness		= 8
+
+		lightborderstyle    = 1     # 0 = lightborder on top side, 1 = lightborder on all sides
+		lightborder_shade = 1.6
 	}
 
-	bg[NORMAL]	= shade (1.0, @bg_color)
-	bg[PRELIGHT] 	= shade (.9, @bg_color)
-	bg[SELECTED] 	= "#FE765E"
+	bg[NORMAL]	= shade (1.24, @bg_color)
+	bg[PRELIGHT] 	= shade (.85, @bg_color)
+	bg[ACTIVE] 	= shade (2.85, @bg_color)
+	bg[SELECTED] 	= @colored_color
 }
 
 style "hscale"
@@ -409,7 +433,7 @@ style "scrollbar"
 		glow_shade          	= 1.14   # sets glow amount for buttons or widgets
 		glowstyle           	= 0     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
 		highlight_shade     	= 1.02  # set highlight amount for buttons or widgets
-		lightborder_shade   	= 1.2   # sets lightborder amount for buttons or widgets
+		lightborder_shade   	= 1.4   # sets lightborder amount for buttons or widgets
 		roundness		= 8
 	}
 
@@ -455,14 +479,19 @@ style "nautilus-sidebar"
 
 style "radiocheck"
 {
-	bg[SELECTED] 	= "#FE765E"
+	bg[SELECTED] 	= @colored_color
 	
 	engine "murrine"
 	{
 	    	contrast = 0.6
-	    	highlight_shade = 1.0
-	    	lightborder_shade = 1.0
-	    	gradient_shades = {1.5,1.3,1.0,0.9}
+	    	highlight_shade = 1.02
+	    	lightborderstyle = 1
+	    	lightborder_shade = 2.2
+		    glow_shade = 1.7   # sets glow amount for buttons or widgets
+		    glowstyle = 3     # 0 = top, 1 = bottom, 2 = top and bottom, 3 = center (vertical), 4 = center (horizontal) 
+	    	gradient_shades = {1.5,1.3,1.1,1.0}
+	    	border_shades = {1.25, 0.95}
+	    	shadow_shades = {0.4,0.2}
 	}
 }
 
