@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Finery
-Comment=Improved Ubuntu Radiance theme
+Name=Cream Finery
+Comment=Improved Ubuntu Radiance theme for Cream
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Finery
-MetacityTheme=Finery
+GtkTheme=Cream Finery
+MetacityTheme=Cream Finery
 IconTheme=ubuntu-mono-light
 CursorTheme=DMZ-White
-ButtonLayout=close,minimize,maximize:
+ButtonLayout=close:minimize,maximize
