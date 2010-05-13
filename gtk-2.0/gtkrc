@@ -1,4 +1,4 @@
-# Cream Finery theme
+# CreamFinery theme
 #
 # Authors:
 # Kenneth Wimer <kwwii@ubuntu.com>
@@ -70,7 +70,7 @@ style "default"
 	GtkEntry::state-hint = 0
 
         GtkEntry::progress-border = { 2, 2, 2, 2 }
-	GtkToolbar:: shadow-type = GTK_SHADOW_NONE
+	#GtkToolbar:: shadow-type = GTK_SHADOW_NONE
 	GtkMenuBar:: shadow-type = GTK_SHADOW_NONE
 	GtkMenuBar::window-dragging = 1
 
@@ -141,7 +141,7 @@ style "default"
 		spinbuttonstyle     = 0     # 0 = no seperator, 1 = with separator
 		stepperstyle        = 1     # 0 = standard, 1 = integrated stepper handles, 2 = squared steppers with round slider
 		textstyle           = 1     # 0 = normal text, 1 = inset
-		toolbarstyle	    = 0     # 0 = flat, 1 = glassy, 2 = gradient
+		toolbarstyle	    = 2     # 0 = flat, 1 = glassy, 2 = gradient
 		trough_shades       = { 0.88, 2.0 } # draw gradient on trough of GtkScrollbar and GtkProgressbar
 	}
 }
@@ -213,8 +213,20 @@ style "button" = "selected"
 	}
 }
 
-style "toolbar" 
+style "toolbar" = "default"
 {
+    ythickness = 1
+    xthickness = 1
+    bg[NORMAL]   = @bg_color
+    #bg[PRELIGHT] = shade(0.2,@bg_color)
+    #bg[SELECTED] =  mix (0.3, @selected_bg_color, shade(0.2,@bg_color))
+    #bg[ACTIVE] =  mix (0.5, @selected_bg_color, shade(0.2,@bg_color))
+
+	engine "murrine"
+	{
+		toolbarstyle = 2  # This forces gradient toolbars.
+		contrast = 0.0
+	}
 }
 
 style "toolbar-item" = "toolbar"
@@ -451,7 +463,7 @@ style "vscrollbar"
 
 style "menubar" = "default"
 {
-	bg[NORMAL]	= "#d2cbbb" #"#cfcfcf" #"#e0d6ba"
+	bg[NORMAL]	= @bg_color #"#d2cbbb" #"#cfcfcf" #"#e0d6ba"
 }
 
 style "soundfix"
@@ -508,7 +520,7 @@ widget "*IdoEntryMenuItem*" style "wide"
 class "GtkWidget"    style "default"
 
 # Increase the x/ythickness in some widgets
-class "GtkToolbar"   					style "default" 
+class "GtkToolbar"   					style "toolbar" 
 class "GtkRange"     					style "wide"
 class "GtkFrame"     					style "wide"
 class "GtkSeparator" 					style "wide"
