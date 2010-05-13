@@ -7,7 +7,7 @@
 #
 # Feel free to modify and share!
 
-gtk_color_scheme = "fg_color:#404040\nbg_color:#F7F5F0\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#120d04\ntooltip_fg_color:#fff5fc\nlink_color:#DD4814\ncolored_color:#ff8442"
+gtk_color_scheme = "fg_color:#404040\nbg_color:#EFEBE1\nbase_color:#ffffff\ntext_color:#323232\nselected_bg_color:#d6d4ca\nselected_fg_color:#323232\ntooltip_bg_color:#120d04\ntooltip_fg_color:#fff5fc\nlink_color:#DD4814\ncolored_color:#ff8442"
 
 gtk-icon-sizes = "panel-menu=26,26:gtk-button=16,16"
 
@@ -216,6 +216,12 @@ style "button" = "selected"
 style "toolbar" = "default"
 {
 	ythickness = 0
+	bg[NORMAL] = "#F7F5F0"
+	
+	engine "murrine"
+	{
+	    contrast = 0.3
+    }
 }
 
 style "toolbar-item" = "toolbar"
